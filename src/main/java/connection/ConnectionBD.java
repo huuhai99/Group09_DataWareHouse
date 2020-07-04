@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class ConnectionBD {
 	public static Connection getConnection(String db_name) {
-		String host = "jdbc:mysql://localhost:3307/ " +  db_name;
+		String host = "jdbc:mysql://localhost:3306/" +  db_name;
 		String username = "root";
-		String password = "1234";
+		String password = "";
 
 		Connection myConnection = null;
 		try {
@@ -16,11 +16,13 @@ public class ConnectionBD {
 			myConnection = DriverManager.getConnection(host, username, password);
 
 		} catch (Exception e) {
-			System.out.println(e);
 			e.printStackTrace();
 		}
 		return myConnection;
 
+	}
+	public static void main(String[] args) {
+		System.out.println(getConnection("control_db"));
 	}
 
 }
